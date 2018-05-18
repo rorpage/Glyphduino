@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 
-#include "../LiquidCrystal/src/LiquidCrystal.h"
+#include "../LiquidCrystal_I2C/LiquidCrystal_I2C.h"
 
 const uint8_t GLYPHDUINO_BATTERY_EMPTY = 0;
 const uint8_t GLYPHDUINO_BATTERY_1_BAR = 1;
@@ -49,18 +49,29 @@ const uint8_t GLYPHDUINO_THERMOMETER = 30;
 const uint8_t GLYPHDUINO_HUMIDITY_0 = 31;
 const uint8_t GLYPHDUINO_HUMIDITY_50 = 32;
 const uint8_t GLYPHDUINO_HUMIDITY_100 = 33;
-
+const uint8_t GLYPHDUINO_ANCHOR = 34;
+const uint8_t GLYPHDUINO_THETA_LOWERCASE = 35;
+const uint8_t GLYPHDUINO_MU_LOWERCASE = 36;
+const uint8_t GLYPHDUINO_SIGMA_UPPERCASE = 37;
+const uint8_t GLYPHDUINO_KEY = 38;
+const uint8_t GYLPHDUINO_WIFI = 39;
+const uint8_t GLYPHDUINO_BLUETOOTH = 40;
+const uint8_t GLYPHDUINO_GLIDER = 41;
+const uint8_t GLYPHDUINO_NFC = 42;
+const uint8_t GLYPHDUINO_TROPHY = 43;
+const uint8_t GLYPHDUINO_ARROW_N = 44;
+const uint8_t GLYPHDUINO_ARROW_S = 45;
 
 class Glyphduino
 {
 	public:
-		Glyphduino(LiquidCrystal *lcd);
+		Glyphduino(LiquidCrystal_I2C *lcd);
 		void registerGlyph(uint8_t num, uint8_t glyphId);
 		void printGlyph(uint8_t glyphId, int8_t col, int8_t row);
 		void printGlyph(uint8_t glyphId);
 
 	private:
-		LiquidCrystal *lcd;
+		LiquidCrystal_I2C *lcd;
 		uint8_t registrationMap[8];
 		void getGlyph(uint8_t glyphId, unsigned char* array);
 };
